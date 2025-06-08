@@ -8,11 +8,17 @@ import { LuListTodo } from "react-icons/lu"
 function TaskManager({ tasks, setTask }) {
 
     let [filter, setFilter] = useState('all');
+    const [error, setError] = useState("");
     const addTask = function (event) {
         event.preventDefault();
         const form = event.target;
-        const newTask = form.taskInput.value;
+        const newTask = form.taskInput.value.trim();
+        if (newTask === '') {
+            setError("* newTask cannot be empty!");
+            return;
+        }
         setTask([...tasks, { "text": newTask, "completed": false }]);
+        setError("");
         toast.success('Task added successfully!');
         form.reset();
     }
@@ -50,9 +56,16 @@ function TaskManager({ tasks, setTask }) {
                         type="text"
                         name="taskInput"
                         placeholder="Add a new task..."
-                    />
-                    <button>+</button>
+                        className={error ? "input-error" : ""}
+                            />
+                            <button>+</button>
                 </form>
+                {error && (
+                    <div style={{ color: "red", fontSize: "14px", marginTop: "4px" }}>
+                        {error}
+                    </div>
+                )}
+
             </div>
             <br />
             <div className="filters">

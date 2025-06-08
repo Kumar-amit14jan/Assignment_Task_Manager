@@ -5,8 +5,9 @@ import "./taskContainer.css";
 import { FaListUl } from 'react-icons/fa';
 import { FaRegMoon } from "react-icons/fa";
 import { IoSunny } from "react-icons/io5"
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 function TaskContainer({ darkMode, setDarkMode }) {
-    let [tasks, setTask] = useState([]);
+    const [tasks, setTasks] = useLocalStorage("tasks", [])
     return (
         <>
             <div className="main">
@@ -24,7 +25,7 @@ function TaskContainer({ darkMode, setDarkMode }) {
                 </header>
                 <div className="task-dashboard">
                     <TaskStats tasks={tasks} />
-                    <TaskManager tasks={tasks} setTask={setTask} />
+                    <TaskManager tasks={tasks} setTask={setTasks} />
                 </div>
             </div>
         </>
