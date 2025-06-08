@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 7%;
+    padding: 20px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 5%;
+}
+
+.taskManager-icon {
+    font-size: 25px;
+    padding: 8px;
+    background-color: #f3e8ff;
+    color: #6b21a8;
+    border-radius: 12px;
+}
+
+p {
+    color: #666;
+    margin-top:-20px ;
+}
+
+.mode-icon {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    padding: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.mode-icon:hover {
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,48 @@
+.task-stats-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.task-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    width: 25%;
+    min-width: 100px;
+    height:7vh;
+}
+
+.task-icon {
+    font-size: 18px;
+}
+
+.task-icon.total {
+    color: #6366f1;
+}
+
+.task-icon.pending {
+    color: #f97316;
+}
+
+.task-icon.completed {
+    color: #10b981;
+}
+
+.label {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.count {
+    font-size: 20px;
+    font-weight: bold;
+    color: #111827;
+}
