@@ -1,0 +1,58 @@
+body {
+    background-color: white;
+    color: black;
+}
+
+body div {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .taskManager-icon {
+    background-color: #0d0d0d;
+}
+
+body.dark div {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 0.5px solid #555;
+}
+
+body.dark .mode-icon li {
+    background-color: #2a2a2a;
+    color: white;
+    border: 0.5px solid #555;
+}
+
+body.dark li {
+    background-color: #2a2a2a;
+    color: white;
+    border: 0.5px solid #555;
+}
+
+body.dark .task-container {
+    border: 0.5px solid #555;
+}
+
+body.dark .empty-state-icon-wrapper {
+    background-color: #2a2a2a;
+}
+
+body.dark .task-text {
+    color: white;
+}
+
+
+body.dark .task-box {
+    border: 0.5px solid #555;
+}

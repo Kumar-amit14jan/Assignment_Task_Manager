@@ -1,6 +1,10 @@
-import "./taskManager.css"
+import "./taskManager.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { FiTrash } from "react-icons/fi";
+import { MdDragHandle } from 'react-icons/md';
+import { LuListTodo } from "react-icons/lu"
 function TaskManager({ tasks, setTask }) {
 
     let [filter, setFilter] = useState('all');
@@ -9,6 +13,7 @@ function TaskManager({ tasks, setTask }) {
         const form = event.target;
         const newTask = form.taskInput.value;
         setTask([...tasks, { "text": newTask, "completed": false }]);
+        toast.success('Task added successfully!');
         form.reset();
     }
 
@@ -25,10 +30,10 @@ function TaskManager({ tasks, setTask }) {
     }
 
     const deleteTaskHandler = function (id) {
-        console.log("task which you want to delete:",);
         let updatedTask = tasks.filter((task, index) => index != id);
         setTask(updatedTask);
-        console.log("updatedtask:", updatedTask)
+        console.log("updatedtask:", updatedTask);
+        toast.error('Task deleted successfully!');
     }
     const completedTask = function (id) {
         const updatedTasks = tasks.map((task, index) =>
@@ -63,17 +68,30 @@ function TaskManager({ tasks, setTask }) {
             </div>
             <br />
             <div id="taskList">
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    closeOnClick
+                    pauseOnHover
+                    draggable
+                />
                 {filteredTasks(filter).length == 0 ? (
-                    <div className="empty-state">
-                        <div>
-                            <p>No tasks found</p>
-                            <small>Add a task above to get started</small>
+                    <div className="empty-state-container">
+                        <div className="empty-state-content">
+                            <div className="empty-state-icon-wrapper">
+                                <LuListTodo className="empty-state-icon" />
+                            </div>
+                            <p className="empty-state-tittle"> No tasks found</p>
+                            <p className="empty-state-subtittle">Add a task above to get started</p>
                         </div>
+
                     </div>
                 ) : (<ul>
                     {filteredTasks(filter).map((task, id) =>
                         <li key={id} className="task-item">
-                            <span className="drag-handle">⋮⋮</span>
+                            <span className="drag-handle">
+                                <MdDragHandle />
+                            </span>
                             <input type="checkbox" className="task-checkbox" checked={task.completed} onChange={() => completedTask(id)} />
                             <span className={`task-text ${task.completed ? "completed" : ""}`}>{task.text}</span>
                             <span className="delete-icon-wrapper">

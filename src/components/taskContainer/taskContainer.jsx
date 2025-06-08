@@ -4,7 +4,8 @@ import TaskManager from "../task-manager/taskManager";
 import "./taskContainer.css";
 import { FaListUl } from 'react-icons/fa';
 import { FaRegMoon } from "react-icons/fa";
-function TaskContainer() {
+import { IoSunny } from "react-icons/io5"
+function TaskContainer({ darkMode, setDarkMode }) {
     let [tasks, setTask] = useState([]);
     return (
         <>
@@ -17,7 +18,9 @@ function TaskContainer() {
                             <p>Stay organized and productive</p>
                         </div>
                     </div>
-                    <FaRegMoon className="mode-icon" />
+                    <button onClick={() => setDarkMode(!darkMode)} className="mode-icon">
+                        {darkMode ? <IoSunny /> : <FaRegMoon />}
+                    </button>
                 </header>
                 <div className="task-dashboard">
                     <TaskStats tasks={tasks} />
